@@ -1,25 +1,23 @@
-import React, { useEffect } from 'react'
-import { BrowserRouter, Roue, Switch, useHistory } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Route, useHistory } from 'react-router-dom'
+import { UserContext } from './context/user.context'
 
 function App() {
-  useEffect( _ => {
-    let history = useHistory();
-    
-  }, [])
+  const [status] = useContext(UserContext)
+  let history = useHistory()
+
+  if (status) history.push('/notes')
+  else history.push('/signin')
 
   return (
-    <div>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/signin">
-
-          </Route>
-          <Route path="/notes">
-
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    </div>
+    <>
+      <Route path="/signin">
+        <h1>Sign In</h1>
+      </Route>
+      <Route path="/notes">
+        <h1>Notes</h1>
+      </Route>
+    </>
   );
 }
 
