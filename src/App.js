@@ -3,6 +3,7 @@ import { Route, useHistory } from 'react-router-dom'
 import { UserContext } from './context/user.context'
 import SignIn from './containers/signin/signin'
 import Notes from './containers/notes/notes'
+import Header from './components/header/header'
 
 export default function App() {
   const { status } = useContext(UserContext)
@@ -15,6 +16,9 @@ export default function App() {
 
   return (
     <>
+      { signInStatus ? (
+        <Header />
+      ) : null }
       <Route path="/signin">
         <SignIn />
       </Route>
