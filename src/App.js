@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { Route, useHistory } from 'react-router-dom'
 import { UserContext } from './context/user.context'
+import { FolderContextProvider } from './context/folder.context'
+import { FileContextProvider } from './context/file.context'
 import SignIn from './containers/signin/signin'
 import Notes from './containers/notes/notes'
 import Header from './components/header/header'
@@ -23,7 +25,11 @@ export default function App() {
         <SignIn />
       </Route>
       <Route path="/notes">
-        <Notes />
+        <FolderContextProvider>
+        <FileContextProvider>
+          <Notes />
+        </FileContextProvider>
+        </FolderContextProvider>
       </Route>
     </>
   )

@@ -14,8 +14,9 @@ export default function SignIn() {
     let history = useHistory()
     
     const handleSubmit = _ => {
+        setUser({ id: 1, email: email, password: password })
+        
         setSigninStatus(true)
-        setUser({ email: email, password: password })
         history.push('/notes')
     }
 
