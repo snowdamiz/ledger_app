@@ -1,24 +1,26 @@
 import React, { useContext } from 'react'
 import { Route, useHistory } from 'react-router-dom'
 import { UserContext } from './context/user.context'
+import SignIn from './containers/signin/signin'
+import Notes from './containers/notes/notes'
 
-function App() {
-  const [status] = useContext(UserContext)
+export default function App() {
+  const { status } = useContext(UserContext)
+  const [signInStatus, setSigninStatus] = status
+  
   let history = useHistory()
 
-  if (status) history.push('/notes')
+  if (signInStatus) history.push('/notes')
   else history.push('/signin')
 
   return (
     <>
       <Route path="/signin">
-        <h1>Sign In</h1>
+        <SignIn />
       </Route>
       <Route path="/notes">
-        <h1>Notes</h1>
+        <Notes />
       </Route>
     </>
-  );
+  )
 }
-
-export default App;
