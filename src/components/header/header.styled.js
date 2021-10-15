@@ -74,6 +74,7 @@ export const Wrap = styled.header`
             color: ${colors.main};
             font-weight: bold;
             font-size: .7em;
+            cursor: pointer;
 
             ${media.tablet} {
                 font-size: .8em;
