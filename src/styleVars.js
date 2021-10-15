@@ -9,3 +9,8 @@ export const colors = {
     black: '#202629',
     blue: '#2B88AB',
 }
+
+export const media = {
+    tablet: `@media screen and (min-width: 700px)`,
+    desktop: `@media screen and (min-width: 1300px)`,
+}
